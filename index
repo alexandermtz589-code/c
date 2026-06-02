@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mis Códigos C++</title>
+
+<style>
+    :root{
+        --bg:#f4f4f4;
+        --card:#ffffff;
+        --text:#222;
+        --button:#0078ff;
+        --button-text:white;
+    }
+
+    body.dark{
+        --bg:#121212;
+        --card:#1e1e1e;
+        --text:#f4f4f4;
+        --button:#4a90ff;
+        --button-text:white;
+    }
+
+    body{
+        margin:0;
+        font-family:Arial, sans-serif;
+        background:var(--bg);
+        color:var(--text);
+        transition:0.3s;
+    }
+
+    header{
+        text-align:center;
+        padding:20px;
+        background:var(--card);
+        box-shadow:0 2px 5px rgba(0,0,0,0.2);
+    }
+
+    h1{
+        margin:0;
+    }
+
+    .container{
+        width:90%;
+        max-width:1000px;
+        margin:30px auto;
+    }
+
+    .controls{
+        text-align:center;
+        margin-bottom:20px;
+    }
+
+    button{
+        padding:10px 20px;
+        border:none;
+        border-radius:8px;
+        cursor:pointer;
+        background:var(--button);
+        color:var(--button-text);
+        font-size:16px;
+    }
+
+    textarea{
+        width:100%;
+        height:350px;
+        resize:vertical;
+        border:none;
+        border-radius:10px;
+        padding:15px;
+        background:var(--card);
+        color:var(--text);
+        font-family:Consolas, monospace;
+        font-size:14px;
+        box-shadow:0 2px 8px rgba(0,0,0,0.2);
+    }
+
+    .preview{
+        margin-top:20px;
+        background:var(--card);
+        padding:15px;
+        border-radius:10px;
+        box-shadow:0 2px 8px rgba(0,0,0,0.2);
+    }
+
+    pre{
+        white-space:pre-wrap;
+        word-wrap:break-word;
+        font-family:Consolas, monospace;
+    }
+</style>
+</head>
+<body>
+
+<header>
+    <h1>💻 Mis Códigos C++</h1>
+    <p>Guarda y visualiza tus programas</p>
+</header>
+
+<div class="container">
+
+    <div class="controls">
+        <button onclick="cambiarTema()">🌙 / ☀️ Cambiar tema</button>
+    </div>
+
+    <textarea id="codigo">
+// Pega aquí tu código C++
+
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int a,b,c;
+
+    cout<<"Dame un entero:"<<endl;
+    cin>>a;
+
+    cout<<"Dame otro entero:"<<endl;
+    cin>>b;
+
+    cout<<"Dame otro entero:"<<endl;
+    cin>>c;
+
+    cout<<"RESULTADOS"<<endl;
+    cout<<"Suma: "<<a+b+c<<endl;
+    cout<<"Diferencia: "<<a-b-c<<endl;
+    cout<<"Producto: "<<a*b*c<<endl;
+    cout<<"Cociente: "<<a/b/c<<endl;
+
+    return 0;
+}
+    </textarea>
+
+    <div style="text-align:center; margin-top:15px;">
+        <button onclick="mostrarCodigo()">📄 Mostrar código</button>
+    </div>
+
+    <div class="preview">
+        <h3>Vista previa:</h3>
+        <pre id="salida"></pre>
+    </div>
+
+</div>
+
+<script>
+function cambiarTema(){
+    document.body.classList.toggle("dark");
+}
+
+function mostrarCodigo(){
+    const codigo = document.getElementById("codigo").value;
+    document.getElementById("salida").textContent = codigo;
+}
+</script>
+
+</body>
+</html>
